@@ -1,0 +1,21 @@
+<div class = "container" *ngIf="authenticationService.isUserLoggedIn()">
+    <div class ="alert alert-warning" *ngIf = "todoForm.dirty && description.invalid">Enter atleast 5 characters</div>
+    <div class ="alert alert-warning" *ngIf = "todoForm.dirty && targetDate.invalid">Enter valid target date</div>
+    <form (ngSubmit)="!todoForm.form.invalid && addTask()" #todoForm = "ngForm">
+        <h1 class = "h3">Add Todo</h1>
+        <fieldset class = "form-group">
+            <label>description</label>
+            <input type="text" #description="ngModel" [(ngModel)]="todo.taskName"  class="form-control" name="description" required="required"  minlength="5">
+        </fieldset>
+        <fieldset class = "form-group">
+            <label>target Date</label>
+            <input type="date" #targetDate = "ngModel"[(ngModel)]="todo.targetDate" class="form-control" name="targetDate" required="required">
+        </fieldset>
+        <fieldset class = "form-group">
+            <label>status</label>
+            <input type="checkbox" [(ngModel)]="todo.status" class="checkbox" name="status" >
+        </fieldset>
+        <button class="btn btn-success">Add</button>
+
+    </form>
+</div>
