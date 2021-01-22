@@ -9,20 +9,22 @@ import { LogoutComponent } from './logout/logout.component';
 import { RouteGaurdService } from './service/route-gaurd.service';
 import { TodoAddComponent } from './todo-add/todo-add.component';
 import { TodoEditComponent } from './todo-edit/todo-edit.component';
+import { ProfileComponent } from './profile/profile.component'
 
 const routes: Routes = [{path:'', component:LoginComponent},
                         {path:'login', component:LoginComponent},
                         {path:'createAccount',component:CreateAccountComponent},
-                        {path:'welcome/:name',component:WelcomeComponent,canActivate:[RouteGaurdService]}, 
-                        {path:'todos',component:TodoListsComponent,canActivate:[RouteGaurdService]},    
-                        {path:'logout',component:LogoutComponent ,canActivate:[RouteGaurdService]}, 
+                        {path:'welcome/:name',component:WelcomeComponent,canActivate:[RouteGaurdService]},
+                        {path:'todos',component:TodoListsComponent,canActivate:[RouteGaurdService]},
+                        {path:'logout',component:LogoutComponent ,canActivate:[RouteGaurdService]},
                         {path: 'add', component:TodoAddComponent,canActivate:[RouteGaurdService]},
-                        {path : 'edit/:id', component: TodoEditComponent,canActivate:[RouteGaurdService]},                   
+                        {path : 'edit/:id', component: TodoEditComponent,canActivate:[RouteGaurdService]},
+                        {path : 'profile/:username', component: ProfileComponent,canActivate:[RouteGaurdService]},
                         {path:'**', component:ErrorComponent}
                       ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

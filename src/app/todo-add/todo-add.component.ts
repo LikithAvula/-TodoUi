@@ -16,7 +16,7 @@ export class TodoAddComponent implements OnInit {
 
   constructor(public authenticationService : AuthenticationService, private url :UrlService, private route :Router ) { }
   ngOnInit(): void {
-    this.todo = new Todo(this.id,'',false,null)
+    this.todo = new Todo(this.id,'',false,null,null)
   }
 
   addTask(){
@@ -24,10 +24,9 @@ export class TodoAddComponent implements OnInit {
       Response =>{ console.log(Response)
         this.route.navigate(['todos'])
       }
-      
+
     )
 
   }
 
 }
-

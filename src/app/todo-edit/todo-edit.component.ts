@@ -19,7 +19,7 @@ export class TodoEditComponent implements OnInit {
 
   ngOnInit(): void {
     this.id =  this.activatedRoute.snapshot.params['id'];
-    this.todo = new Todo(1,'',false,null);
+    this.todo = new Todo(1,'',false,null,null);
     this.url.getTodo(this.id,this.authenticationService.getAuthenticatedUser()).subscribe(
       response => this.todo =  response
     )
@@ -36,7 +36,7 @@ export class TodoEditComponent implements OnInit {
       }
 
     )
-    
+
 
   }
 

@@ -2,6 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {AuthenticationService} from './../service/auth/authentication.service'
 
+
+export class Login{
+  constructor(public userName : string  , public password : string  ){
+
+  }
+}
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -9,14 +15,15 @@ import {AuthenticationService} from './../service/auth/authentication.service'
 })
 export class LoginComponent implements OnInit {
 
-  username = ''
-  password = ''
+
   error='invalid credentials'
   invalid = false;
+  login : Login;
   constructor(private router : Router ,
     private authService : AuthenticationService ) { }
 
   ngOnInit(): void {
+    this.login = new Login(null,null);
   }
 
   // handlelogin(event){
@@ -28,12 +35,27 @@ export class LoginComponent implements OnInit {
   //   }
   // }
 
-  
-  handlelogin(event){
-    this.authService.authentication(this.username,this.password).subscribe(
+
+  // handlelogin(event){
+  //   this.authService.basicAuthentication(this.username,this.password).subscribe(
+  //     data => {
+  //       console.log(data)
+  //       this.router.navigate(['welcome',this.username])
+  //       this.invalid = false
+  //     },
+  //     error =>{
+  //       console.log(error)
+  //       this.invalid=true
+  //     }
+  //   )
+  // }
+
+
+  JWTHandlelogin(){
+    this.authService.JWTAuthentication(this.login.userName,this.login.password).subscribe(
       data => {
         console.log(data)
-        this.router.navigate(['welcome',this.username])
+        this.router.navigate(['welcome',this.login.userName])
         this.invalid = false
       },
       error =>{

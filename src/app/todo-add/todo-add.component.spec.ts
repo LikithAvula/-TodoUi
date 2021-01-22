@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { TodoAddComponent } from './todo-add.component';
 
@@ -6,7 +6,7 @@ describe('TodoAddComponent', () => {
   let component: TodoAddComponent;
   let fixture: ComponentFixture<TodoAddComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ TodoAddComponent ]
     })
