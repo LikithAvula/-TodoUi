@@ -15,7 +15,8 @@ import { FooterComponent } from './footer/footer.component';
 import { LogoutComponent } from './logout/logout.component';
 import { TodoAddComponent } from './todo-add/todo-add.component';
 import { TodoEditComponent } from './todo-edit/todo-edit.component';
-import { AuthenticationInterceptorService } from './service/http/authentication-interceptor.service'
+import { AuthenticationInterceptorService } from './service/http/authentication-interceptor.service';
+import { ProfileComponent } from './profile/profile.component'
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AuthenticationInterceptorService } from './service/http/authentication-
     FooterComponent,
     LogoutComponent,
     TodoAddComponent,
-    TodoEditComponent
+    TodoEditComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
